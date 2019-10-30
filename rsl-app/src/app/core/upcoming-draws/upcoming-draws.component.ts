@@ -24,7 +24,7 @@ export class UpcomingDrawsComponent implements OnInit {
   };
 
   constructor(private lottoSrv: LottoService) {
-    this.openDraws$ = this.lottoSrv.getOpenDraws(this.query)
+    this.openDraws$ = this.lottoSrv.getOpenDraws(this.query);
   }
 
   ngOnInit() {
