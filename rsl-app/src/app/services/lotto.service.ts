@@ -5,6 +5,10 @@ import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 
 import { environment } from 'src/environments/environment';
+import { LatestResultModel } from '../models/LatestResultModel';
+import { OpenDrawModel } from '../models/OpenDrawModel';
+import { LatestResultQueryModel } from '../models/LatestResultQueryModel';
+import { OpenDrawQueryModel } from '../models/OpenDrawQueryModel';
 
 @Injectable({
   providedIn: 'root'
@@ -13,7 +17,7 @@ export class LottoService {
 
   constructor(private http: HttpClient) { }
 
-  getLatestResults(query: any): Observable<LatestResultModel[]> {
+  getLatestResults(query: LatestResultQueryModel): Observable<LatestResultModel[]> {
     return this.http.post(`${environment.baseUrl}/latestresults`, query).pipe(
       map((res: any) => {
         try {
@@ -37,7 +41,7 @@ export class LottoService {
     );
   }
 
-  getOpenDraws(query: any): Observable<OpenDrawModel[]> {
+  getOpenDraws(query: OpenDrawQueryModel): Observable<OpenDrawModel[]> {
     return this.http.post(`${environment.baseUrl}/opendraws`, query).pipe(
       map((res: any) => {
         try {

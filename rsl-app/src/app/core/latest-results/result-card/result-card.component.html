@@ -15,7 +15,7 @@
     </div>
   </mat-card-content>
   <div class="checkbox-dividends">
-    <mat-checkbox [(ngModel)]="showDividends" color="primary">Display dividends</mat-checkbox>
+    <mat-checkbox ngDefaultControl [(ngModel)]="showDividends" color="primary">Display dividends</mat-checkbox>
   </div>
 
   <ng-container *ngIf="showDividends">

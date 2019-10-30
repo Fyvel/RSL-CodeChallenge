@@ -1,4 +1,4 @@
-interface OpenDrawModel {
+export interface OpenDrawModel {
   drawDisplayName: string;
   logoImage: string;
   drawDate: Date;

@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { LottoService } from 'src/app/services/lotto.service';
 import { Observable } from 'rxjs';
+import { LatestResultModel } from 'src/app/models/LatestResultModel';
 
 @Component({
   selector: 'app-latest-results',
@@ -20,7 +21,7 @@ export class LatestResultsComponent implements OnInit {
     ]
   };
 
-  latestResults$: Observable<any[]>;
+  latestResults$: Observable<LatestResultModel[]>;
 
   constructor(private lottoSrv: LottoService) {
     this.latestResults$ = this.lottoSrv.getLatestResults(this.query);

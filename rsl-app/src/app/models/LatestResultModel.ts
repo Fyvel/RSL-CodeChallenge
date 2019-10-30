@@ -1,4 +1,4 @@
-interface LatestResultModel {
+export interface LatestResultModel {
   productDisplayName: string;
   logoImage: string;
   drawDate: Date;

@@ -1,21 +1,37 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { ResultCardComponent } from './result-card.component';
+import { NO_ERRORS_SCHEMA } from '@angular/core';
+import { FormsModule } from '@angular/forms';
+import { LatestResultModel } from 'src/app/models/LatestResultModel';
 
 describe('ResultCardComponent', () => {
   let component: ResultCardComponent;
   let fixture: ComponentFixture<ResultCardComponent>;
 
+  const dummyData: LatestResultModel = {
+    productDisplayName: 'Oy oy',
+    primaryNumbers: [2, 45, 78, 96, 45],
+    secondaryNumbers: [20, 11],
+    drawDate: new Date(),
+    drawNumber: 123,
+    logoImage: 'http://media.tatts.com/TattsServices/Lotto/Products/MonWedTattsLotto_v1.png',
+    dividends: []
+  };
+
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ ResultCardComponent ]
+      declarations: [ResultCardComponent],
+      imports: [FormsModule],
+      schemas: [NO_ERRORS_SCHEMA]
     })
-    .compileComponents();
+      .compileComponents();
   }));
 
   beforeEach(() => {
     fixture = TestBed.createComponent(ResultCardComponent);
     component = fixture.componentInstance;
+    component.data = dummyData;
     fixture.detectChanges();
   });
 

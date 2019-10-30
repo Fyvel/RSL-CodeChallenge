@@ -1,4 +1,5 @@
 import { Component, OnInit, ChangeDetectionStrategy, Input } from '@angular/core';
+import { OpenDrawModel } from 'src/app/models/OpenDrawModel';
 
 @Component({
   selector: 'app-draw-card',

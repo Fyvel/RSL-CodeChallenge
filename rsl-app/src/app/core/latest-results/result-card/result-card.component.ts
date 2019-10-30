@@ -1,7 +1,8 @@
 import { Component, OnInit, Input, ChangeDetectionStrategy } from '@angular/core';
+import { LatestResultModel } from 'src/app/models/LatestResultModel';
 
 @Component({
-  selector: 'app-card',
+  selector: 'app-result-card',
   templateUrl: './result-card.component.html',
   styleUrls: ['./result-card.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush

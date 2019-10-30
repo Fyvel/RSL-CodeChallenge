@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
 import { LottoService } from 'src/app/services/lotto.service';
+import { OpenDrawModel } from 'src/app/models/OpenDrawModel';
 
 @Component({
   selector: 'app-upcoming-draws',
