@@ -1,1 +1,10 @@
 <p>latest-results works!</p>
+<div *ngIf="(latestResults$ | async) as latestResults; else loading">
+  <div *ngFor="let result of latestResults" class="result-card-list">
+    <app-card class="result-card"></app-card>
+  </div>
+</div>
+
+<ng-template #loading>
+  LOADING...
+</ng-template>

@@ -1,0 +1,9 @@
+.result-card-list {
+	display: flex;
+	flex-flow: column nowrap;
+	align-items: center;
+
+	.result-card {
+		margin: 5px;
+	}
+}
