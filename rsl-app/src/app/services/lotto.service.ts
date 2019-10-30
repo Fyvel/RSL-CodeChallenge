@@ -21,7 +21,6 @@ export class LottoService {
     return this.http.post(`${environment.baseUrl}/latestresults`, query).pipe(
       map((res: any) => {
         try {
-          console.log('Latest results', res.DrawResults);
           const latestResultsMapper: (x: any) => LatestResultModel =
             x => ({
               productDisplayName: x.DrawDisplayName,
@@ -45,7 +44,6 @@ export class LottoService {
     return this.http.post(`${environment.baseUrl}/opendraws`, query).pipe(
       map((res: any) => {
         try {
-          console.log('Open draws', res.Draws);
           const openDrawsMapper: (x: any) => OpenDrawModel =
             x => ({
               drawDisplayName: x.DrawDisplayName,
