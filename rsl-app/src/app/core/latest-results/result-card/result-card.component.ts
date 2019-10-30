@@ -2,11 +2,11 @@ import { Component, OnInit, Input, ChangeDetectionStrategy } from '@angular/core
 
 @Component({
   selector: 'app-card',
-  templateUrl: './card.component.html',
-  styleUrls: ['./card.component.scss'],
+  templateUrl: './result-card.component.html',
+  styleUrls: ['./result-card.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class CardComponent implements OnInit {
+export class ResultCardComponent implements OnInit {
 
   @Input() data: LatestResultModel;
 

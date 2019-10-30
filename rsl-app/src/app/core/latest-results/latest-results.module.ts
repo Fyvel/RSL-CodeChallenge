@@ -5,14 +5,14 @@ import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 
 import { LatestResultsRoutingModule } from './latest-results-routing.module';
 import { LatestResultsComponent } from './latest-results.component';
-import { CardModule } from './card/card.module';
+import { ResultCardModule } from './result-card/result-card.module';
 
 @NgModule({
   declarations: [LatestResultsComponent],
   imports: [
     CommonModule,
     MatProgressSpinnerModule,
-    CardModule,
+    ResultCardModule,
     LatestResultsRoutingModule
   ]
 })
