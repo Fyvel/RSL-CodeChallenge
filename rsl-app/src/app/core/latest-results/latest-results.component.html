@@ -1,9 +1,9 @@
-<h2 class="title">Latest results</h2>
-<div *ngIf="(latestResults$ | async) as latestResults; else loading">
-  <div *ngFor="let result of latestResults" class="result-card-list">
+<h2 class="title">LATEST RESULTS</h2>
+<ng-container *ngIf="(latestResults$ | async) as latestResults; else loading">
+  <ng-container *ngFor="let result of latestResults">
     <app-card class="result-card" [data]="result"></app-card>
-  </div>
-</div>
+  </ng-container>
+</ng-container>
 
 <ng-template #loading>
   <mat-spinner class="loader"></mat-spinner>

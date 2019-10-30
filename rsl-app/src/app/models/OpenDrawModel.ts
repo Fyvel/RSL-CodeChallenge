@@ -1,3 +1,7 @@
 interface OpenDrawModel {
-  toto: number;
+  drawDisplayName: string;
+  logoImage: string;
+  drawDate: Date;
+  drawTime: Date;
+  drawNumber: number;
 }

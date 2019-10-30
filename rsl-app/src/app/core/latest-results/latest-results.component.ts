@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewEncapsulation } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { LottoService } from 'src/app/services/lotto.service';
 import { Observable } from 'rxjs';
 

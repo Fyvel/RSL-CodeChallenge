@@ -13,7 +13,7 @@ export class LottoService {
 
   constructor(private http: HttpClient) { }
 
-  getLatestResults(query: any) {
+  getLatestResults(query: any): Observable<LatestResultModel[]> {
     return this.http.post(`${environment.baseUrl}/latestresults`, query).pipe(
       map((res: any) => {
         try {
@@ -37,12 +37,21 @@ export class LottoService {
     );
   }
 
-  getOpenDraws(query: any): Observable<any> {
+  getOpenDraws(query: any): Observable<OpenDrawModel[]> {
     return this.http.post(`${environment.baseUrl}/opendraws`, query).pipe(
       map((res: any) => {
         try {
-          console.log('Open draws', res);
-          return res.Draws;
+          console.log('Open draws', res.Draws);
+          const openDrawsMapper: (x: any) => OpenDrawModel =
+            x => ({
+              drawDisplayName: x.DrawDisplayName,
+              logoImage: x.DrawLogoUrl,
+              drawDate: x.DrawDate,
+              drawTime: x.DrawEndSellDateTimeUTC,
+              drawNumber: x.DrawNumber,
+            });
+
+          return (res.Draws as any[] || []).map(openDrawsMapper);
         } catch (err) {
           throw new Error(err);
         }

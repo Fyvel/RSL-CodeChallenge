@@ -1,1 +1,10 @@
-<p>upcoming-draw works!</p>
+<h2 class="title">OPEN DRAWS</h2>
+<ng-container *ngIf="(openDraws$ | async) as openDraws; else loading">
+  <ng-container *ngFor="let draw of openDraws">
+    <app-draw-card [data]="draw" class="draw-card"></app-draw-card>
+  </ng-container>
+</ng-container>
+
+<ng-template #loading>
+  <mat-spinner class="loader"></mat-spinner>
+</ng-template>

@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Observable } from 'rxjs';
+import { LottoService } from 'src/app/services/lotto.service';
 
 @Component({
   selector: 'app-upcoming-draws',
@@ -7,7 +9,22 @@ import { Component, OnInit } from '@angular/core';
 })
 export class UpcomingDrawsComponent implements OnInit {
 
-  constructor() { }
+  openDraws$: Observable<OpenDrawModel[]>;
+
+  // hard coded query for now
+  query = {
+    CompanyId: 'Tattersalls',
+    MaxDrawCount: 10,
+    OptionalProductFilter: [
+      'OZlotto',
+      'Powerball',
+      'TattsLotto'
+    ]
+  };
+
+  constructor(private lottoSrv: LottoService) {
+    this.openDraws$ = this.lottoSrv.getOpenDraws(this.query)
+  }
 
   ngOnInit() {
   }

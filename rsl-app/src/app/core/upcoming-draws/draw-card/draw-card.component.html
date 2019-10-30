@@ -1,0 +1,10 @@
+<mat-card class="card">
+  <div class="card-header">
+    <img [src]="data.logoImage" class="logo-img">
+    <div class="display-name">
+      <mat-card-title>{{data.drawDisplayName}}</mat-card-title>
+      <mat-card-subtitle>{{data.drawDate | date: 'EEEE, MMMM d, y'}}</mat-card-subtitle>
+      <label>Time of the draw: {{data.drawTime | date: 'h:mm a'}}</label>
+    </div>
+  </div>
+</mat-card>

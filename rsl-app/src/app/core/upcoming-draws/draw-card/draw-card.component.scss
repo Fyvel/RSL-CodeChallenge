@@ -1,0 +1,13 @@
+.card {
+	max-width: 500px;
+
+	.card-header {
+		display: flex;
+
+		.logo-img {
+			height: 80px;
+      width: 80px;
+      margin-right: 24px;
+    }
+	}
+}
