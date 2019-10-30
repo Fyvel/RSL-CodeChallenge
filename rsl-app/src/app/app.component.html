@@ -1,5 +1,16 @@
-<mat-toolbar color="primary">RSL App</mat-toolbar>
+<mat-toolbar color="primary">
+  <span> RSL App </span>
+  <span class="spacer"></span>
+  <button mat-stroked-button [matMenuTriggerFor]="menu">
+    <mat-icon>menu</mat-icon>
+  </button>
+</mat-toolbar>
 
 <div class="content">
   <router-outlet></router-outlet>
 </div>
+
+<mat-menu #menu="matMenu">
+  <button mat-menu-item routerLink="/results">LATEST RESULTS</button>
+  <button mat-menu-item routerLink="/draws">OPEN DRAWS</button>
+</mat-menu>
