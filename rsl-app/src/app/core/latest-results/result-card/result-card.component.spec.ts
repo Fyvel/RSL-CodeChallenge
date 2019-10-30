@@ -13,7 +13,7 @@ describe('ResultCardComponent', () => {
     productDisplayName: 'Oy oy',
     primaryNumbers: [2, 45, 78, 96, 45],
     secondaryNumbers: [20, 11],
-    drawDate: new Date(),
+    drawDate: new Date().toISOString(),
     drawNumber: 123,
     logoImage: 'http://media.tatts.com/TattsServices/Lotto/Products/MonWedTattsLotto_v1.png',
     dividends: []
@@ -37,5 +37,42 @@ describe('ResultCardComponent', () => {
 
   it('should create', () => {
     expect(component).toBeTruthy();
+  });
+
+  it('should increase/decrease DividendIndex', () => {
+    // arrange
+    const step = 1;
+    const currentIndex = component["index"];
+    const data = { ...dummyData, dividends: [{}, {}, {}] };
+    component.data = data;
+    // act
+    component.setDividendIndex(step);
+    // assert
+    expect(component["index"]).toBe(currentIndex + step);
+
+  });
+
+  it('should set DividendeIndex to 0 when array limit is reached', () => {
+    // arrange
+    const step = 1;
+    const data = { ...dummyData, dividends: [{}, {}, {}] };
+    component.data = data;
+    component["index"] = data.dividends.length - 1;
+    // act
+    component.setDividendIndex(step);
+    // assert
+    expect(component["index"]).toBe(0);
+  });
+
+  it('should set DividendeIndex to the idex of the last item of the array when 0 is reached', () => {
+    // arrange
+    const step = 1;
+    const data = { ...dummyData, dividends: [{}, {}, {}] };
+    component.data = data;
+    component["index"] = 0;
+    // act
+    component.setDividendIndex(-step);
+    // assert
+    expect(component["index"]).toBe(data.dividends.length - 1);
   });
 });

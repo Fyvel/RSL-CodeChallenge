@@ -1,7 +1,7 @@
 export interface OpenDrawModel {
   drawDisplayName: string;
   logoImage: string;
-  drawDate: Date;
-  drawTime: Date;
+  drawDate: string;
+  drawTime: string;
   drawNumber: number;
 }

@@ -1,7 +1,7 @@
 export interface LatestResultModel {
   productDisplayName: string;
   logoImage: string;
-  drawDate: Date;
+  drawDate: string;
   drawNumber: number;
   primaryNumbers: number[];
   secondaryNumbers: number[];

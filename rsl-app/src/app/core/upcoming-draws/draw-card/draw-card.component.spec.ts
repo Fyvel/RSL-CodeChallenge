@@ -9,10 +9,10 @@ describe('DrawCardComponent', () => {
   let fixture: ComponentFixture<DrawCardComponent>;
 
   const dummyData: OpenDrawModel = {
-    drawDate: new Date(),
+    drawDate: new Date().toISOString(),
     drawDisplayName: 'Hi there',
     drawNumber: 123,
-    drawTime: new Date(),
+    drawTime: new Date().toISOString(),
     logoImage: ''
   };
 
