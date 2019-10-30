@@ -1,7 +1,7 @@
-<p>latest-results works!</p>
+<h2 class="title">Latest results</h2>
 <div *ngIf="(latestResults$ | async) as latestResults; else loading">
   <div *ngFor="let result of latestResults" class="result-card-list">
-    <app-card class="result-card"></app-card>
+    <app-card class="result-card" [data]="result"></app-card>
   </div>
 </div>
 

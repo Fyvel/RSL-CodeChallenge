@@ -1,1 +1,32 @@
-<mat-card>Simple card</mat-card>
+<mat-card class="card">
+  <div class="card-header">
+    <img [src]="data.logoImage" class="logo-img">
+    <div>
+      <mat-card-title>{{data.productDisplayName}}</mat-card-title>
+      <mat-card-subtitle>{{data.drawDate | date: 'EEEE, MMMM d, y'}}</mat-card-subtitle>
+    </div>
+  </div>
+  <mat-card-content class="draw-numbers">
+    <div *ngFor="let number of data.primaryNumbers" class="primary number">
+      {{number.toLocaleString('en-AU', {minimumIntegerDigits: 2})}}
+    </div>
+    <div *ngFor="let number of data.secondaryNumbers" class="secondary number">
+      {{number.toLocaleString('en-AU', {minimumIntegerDigits: 2})}}
+    </div>
+  </mat-card-content>
+  <div class="checkbox-dividends">
+    <mat-checkbox [(ngModel)]="showDividends" color="primary">Display dividends</mat-checkbox>
+  </div>
+
+  <ng-container *ngIf="showDividends">
+    <mat-card-actions class="card-actions" >
+      <button mat-raised-button color="accent" (click)="setDividendIndex(-1)">
+        <mat-icon>arrow_back_ios</mat-icon>
+      </button>
+      <button mat-raised-button color="accent" (click)="setDividendIndex(1)">
+        <mat-icon>arrow_forward_ios</mat-icon>
+      </button>
+    </mat-card-actions>
+    <pre>{{data.dividends[index] | json}}</pre>
+  </ng-container>
+</mat-card>

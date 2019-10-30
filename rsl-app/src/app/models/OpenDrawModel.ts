@@ -1,0 +1,3 @@
+interface OpenDrawModel {
+  toto: number;
+}

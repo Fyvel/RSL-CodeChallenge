@@ -13,12 +13,23 @@ export class LottoService {
 
   constructor(private http: HttpClient) { }
 
-  getLatestResults(query: any): Observable<any> {
+  getLatestResults(query: any) {
     return this.http.post(`${environment.baseUrl}/latestresults`, query).pipe(
       map((res: any) => {
         try {
           console.log('Latest results', res.DrawResults);
-          return res.DrawResults;
+          const latestResultsMapper: (x: any) => LatestResultModel =
+            x => ({
+              productDisplayName: x.DrawDisplayName,
+              logoImage: x.DrawLogoUrl,
+              drawDate: x.DrawDate,
+              drawNumber: x.DrawNumber,
+              primaryNumbers: x.PrimaryNumbers,
+              secondaryNumbers: x.SecondaryNumbers,
+              dividends: x.Dividends
+            });
+          return (res.DrawResults as any[] || []).map(latestResultsMapper);
+
         } catch (err) {
           throw new Error(err);
         }

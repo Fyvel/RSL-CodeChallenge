@@ -5,11 +5,11 @@ import { Observable } from 'rxjs';
 @Component({
   selector: 'app-latest-results',
   templateUrl: './latest-results.component.html',
-  styleUrls: ['./latest-results.component.scss'],
-  encapsulation: ViewEncapsulation.None
+  styleUrls: ['./latest-results.component.scss']
 })
 export class LatestResultsComponent implements OnInit {
 
+  // hard coded query for now
   query = {
     CompanyId: 'Tattersalls',
     MaxDrawCountPerProduct: 10,

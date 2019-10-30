@@ -1,0 +1,51 @@
+.card {
+	width: 100%;
+	min-width: 360px;
+
+	.card-header {
+		width: 100%;
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+
+		.logo-img {
+			height: 80px;
+			width: 80px;
+		}
+	}
+
+	.draw-numbers {
+		width: 100%;
+		display: flex;
+		justify-content: space-around;
+
+		.number {
+			font-weight: bold;
+			margin: 4px;
+			padding: 4px;
+			border: 10px solid;
+			border: double 4px transparent;
+			border-radius: 80px;
+
+			&.primary {
+				border-image: linear-gradient(45deg, rgb(0, 143, 104), rgb(250, 224, 66)) 1;
+			}
+
+			&.secondary {
+				border-image: linear-gradient(45deg, rgb(84, 0, 255), rgb(255, 0, 100)) 1;
+			}
+		}
+	}
+
+	.checkbox-dividends {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+  }
+
+	.card-actions {
+		display: flex;
+		justify-content: center;
+		align-items: center;
+	}
+}
